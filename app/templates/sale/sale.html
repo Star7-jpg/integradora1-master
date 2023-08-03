@@ -1,0 +1,55 @@
+{%extends 'base.html'%}
+
+{% block title %}
+ventas
+{% endblock %}
+
+{% block content %}
+
+<nav class="titulo"> <h1>ventas </h1></nav>
+
+<div class= "opciones-vender">   
+  <a href="{{ url_for('ventas.create_sal') }}" class="botton1">Nueva venta</a>
+  <a href="" class="botton1">Insertar producto</a>
+  <a href="" class="botton1">Editar venta</a>
+  <a href="" class="botton1 vender">Vender</a>
+  <a href="" class="botton1 borrar">Eliminar venta</a>
+</div>
+<div class="v-ventas">
+<div class="variable">
+  venta
+</div>
+  <a href="" class="v">venta 1</a>
+  <a href="" class="v">venta 2</a>
+</div>
+
+<nav class="a-table">
+  <table id="sale">
+    <thead>
+        <tr>
+            <th class="corner-up">ID</th>
+            <th>Fecha</th>
+            <th>Total</th>
+            <th>Producto</th>
+            <th class="corner-up2">Usuario</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+      {% for sal in sale %}
+                <tr>
+                    <td>{{ sal.id_venta }}</td>
+                    <td>{{ sal.fecha }}</td>
+                    <td>{{ sal.total }}</td>
+                    <td>{{ sal.id_producto }}</td>
+                    <td>{{ sal.id_usuario }}</td>               
+                </tr>
+            {% endfor %}
+    </tbody>
+  </table>  
+</nav>
+    
+
+</header>
+
+{% endblock %}

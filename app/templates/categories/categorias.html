@@ -1,0 +1,37 @@
+{%extends 'base.html'%}
+
+
+{% block title %}
+productos
+{% endblock %}
+{% block content %}
+<nav class="titulo"><h1>Categorias</h1></nav>
+
+<a href="{{ url_for('cat.catn') }}" >
+    <input type="button" value="Crear nueva categoria" class="bpr bpr-ac">
+</a>
+<a href="{{ url_for('cat.cate') }}" >
+    <input type="button" value="Editar categoria" class="bpr bpr-ed">
+</a>
+
+<div class="bloc-cat">
+    <div class="cat">
+        <img src="" alt="imagen" >
+        <div>
+            <p class="item">descripcion</p>
+            <p class="item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, ullam incidunt! Velit, quidem eligendi. Eaque reprehenderit dicta iste necessitatibus! Sequi esse soluta sit quam fugit aspernatur perferendis, suscipit quibusdam quidem voluptatibus animi explicabo quo corrupti perspiciatis voluptatem consectetur laudantium iste id consequuntur inventore unde nihil voluptates. Enim officia labore soluta corporis earum, autem a voluptatibus velit sint? Vitae ad voluptate debitis ipsa velit, deleniti blanditiis doloremque aut architecto consequuntur fugiat dolore delectus molestias? Est modi dolore nam autem perferendis excepturi id eveniet voluptates nulla hic odio unde assumenda, soluta officiis, similique sapiente. Quisquam, suscipit impedit. Debitis quis nobis id vel.</p>
+        </div>
+    </div>
+</div>
+<div class="bloc-cat">
+    <div class="cat">
+        <img src="" alt="imagen" >
+        <div>
+            <p class="item">descripcion</p>
+            <p class="item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, ullam incidunt! Velit, quidem eligendi. Eaque reprehenderit dicta iste necessitatibus! Sequi esse soluta sit quam fugit aspernatur perferendis, suscipit quibusdam quidem voluptatibus animi explicabo quo corrupti perspiciatis voluptatem consectetur laudantium iste id consequuntur inventore unde nihil voluptates. Enim officia labore soluta corporis earum, autem a voluptatibus velit sint? Vitae ad voluptate debitis ipsa velit, deleniti blanditiis doloremque aut architecto consequuntur fugiat dolore delectus molestias? Est modi dolore nam autem perferendis excepturi id eveniet voluptates nulla hic odio unde assumenda, soluta officiis, similique sapiente. Quisquam, suscipit impedit. Debitis quis nobis id vel.</p>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

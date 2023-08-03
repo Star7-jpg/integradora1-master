@@ -1,0 +1,35 @@
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<div class="fond-c">
+    <h1 class>
+        Sistema de punto de venta 
+    </h1>
+
+    <nav class="cont">
+            <h1> Inicio de sesión </h1>
+            <div class="login">
+                <p class="size">Nombre Usuario</p>
+                <input type="text" class="margin">
+            
+                <p class="size">Contraseña Usuario</p>
+                <input type="text" class="margin">
+                <a href="{{url_for('login.adm_home')}}">
+                    <input type="button" value="Iniciar sesion" class="bpr bpr-ac">
+                </a>
+                <a href="{{url_for('ventas.sale')}}">
+                    <input type="button" value="empleado" class="bpr bpr-ac">
+           </div> 
+           
+           
+                
+    
+    </nav>
+ </div> 
+
+</div>
+{% endblock %}

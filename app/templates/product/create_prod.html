@@ -1,0 +1,37 @@
+{%extends 'base.html'%}
+
+
+{% block title %}
+productos
+{% endblock %}
+
+{% block content %}
+<nav class="titulo"> Insertar productos </nav>
+
+    <nav class="pdiv">
+        <div class="func func-pro">
+            
+            <h2>Nombre producto</h2>
+            <input type="text" class="margin">
+        
+            <h2> Precio producto</h2>
+            <input type="text" class="margin">
+            
+            <h2> Cantidad producto</h2>
+            <input type="text" class="margin">
+            
+            <h2> Marca producto</h2>
+            <input type="text" class="margin">
+            
+            <h2> Categoria producto</h2>
+            <input type="text" class="margin">
+        </div>
+        <a href="{{ url_for('product.productos') }}"> 
+
+            <input type="button" value="Guardar" class="bpr bpr-ac">
+        </a>
+        
+    </nav>
+    
+
+{% endblock content %}

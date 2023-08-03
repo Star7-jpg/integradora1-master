@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<title>{% block title %}{% endblock %}</title>
+  
+</head>
+    <body>
+        <header>
+            <div class="fond">
+                <nav class="banner">
+                    <img src="" alt="logo" >
+                    <nav class="buscadores">
+                    <input type="text" placeholder="¿Qué estas buscando?" class ="search">
+                    <input type="button" value="Buscar" class="button-search">
+                    </nav>
+                    <a href="{{url_for('home.cerrar')}}">Cerrar Sesion</a>
+                </nav>
+            
+       
+{% block content %}
+{% endblock %}
+</div>
+</header>
+<footer class="footer">
+    <p> Copyright @the Software house</p>
+</footer>
+</body>
+</html>

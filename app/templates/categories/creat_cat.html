@@ -1,0 +1,27 @@
+{%extends 'base.html'%}
+
+
+{% block title %}
+productos
+{% endblock %}
+
+{% block content %}
+<nav class="titulo"> Crear nueva categoria </nav>
+
+    <nav class="pdiv">
+        <div class="func func-cat">
+            <h2>Nombre Categoria</h2>
+            <input type="text" class="margin">
+        
+            <h2> descripcion</h2>
+            <input type="text" class="margin">
+        </div>
+        <a href="{{ url_for('cat.catp') }}"> 
+
+            <input type="button" value="Guardar" class="bpr bpr-ac">
+        </a>
+        
+    </nav>
+    
+
+{% endblock content %}
