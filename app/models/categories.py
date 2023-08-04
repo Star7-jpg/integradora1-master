@@ -14,7 +14,7 @@ class Category:
         if self.id_categoria is None:
             with mydb.cursor() as cursor:
                 sql = "INSERT INTO category(nombre) VALUES(%s)"
-                val = (self.nombre)
+                val = (self.nombre,)
                 cursor.execute(sql, val)
                 mydb.commit()
                 self.id_categoria = cursor.lastrowid
@@ -45,11 +45,12 @@ class Category:
             nombre = Category(result["nombre"], id_categoria)
             return nombre
         
+          
     @staticmethod
     def get_all():
         categoria = []
         with mydb.cursor(dictionary=True) as cursor:
-            sql = f"SELECT id_categoria, nombre FROM category"
+            sql = f"SELECT nombre,id_categoria FROM category"
             cursor.execute(sql)
             result = cursor.fetchall()
             for item in result:

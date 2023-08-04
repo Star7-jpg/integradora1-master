@@ -5,11 +5,18 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Categories Page</h1>
+
+<nav class="titulo">
+    <h1>
+        <a href="{{ url_for('home.cerrar') }}" class="bpr bpr-ed"> Regresar</a>
+        Categories Page</h1></nav>
+
     <h2>Lista de Categorias</h2>
-    <a href="{{ url_for('category.create_cat') }}" class="btn">Nueva Categoria</a>
-    <table id="categories">
-        <thead>
+    <a href="{{ url_for('cat.catn') }}" class="bpr bpr-ac">Nueva Categoria</a>
+    <nav class="a-table">
+
+        <table id="sale">
+            <thead>
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
@@ -23,18 +30,16 @@
                     <td>{{ cat.id_categoria }}</td>
                     <td>{{ cat.nombre }}</td>
                     <td>
-                        <a href="{{ url_for('category.update_cat', id_categoria=cat.id_categoria) }}">
-                            <i class="fa fa-refresh"></i> 
+                        <a href="{{ url_for('cat.cate', id_categoria=cat.id_categoria) }}">
+                            <button>Actualizar</button>
                         </a> 
-                        <form method="post" action="{{ url_for('category.delete_cat', id_categoria=cat.id_categoria) }}">
-                            <button type="submit"
-                                    onclick="return confirm('seguro')">
-                                <i class="fa fa-trash"></i>
-                            </button>
-                        </form>
-                    </td>
-                </tr>
+                        <form method="post" action="{{ url_for('cat.delete_cat', id_categoria=cat.id_categoria) }}">
+                            <button type="submit" onclick="return confirm('¿seguro de borrar este objeto?')" class="fa">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
             {% endfor %}
         </tbody>
     </table>
+</nav>
 {% endblock %}

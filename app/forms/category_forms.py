@@ -12,4 +12,4 @@ class UpdateCategoryForm(FlaskForm):
     nombre = StringField('Categoria', 
                            validators=[DataRequired()])
 
-    submit = SubmitField('Guardar')
+    submit = SubmitField('Actualizar')

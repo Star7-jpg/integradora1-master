@@ -5,21 +5,24 @@
 {% endblock %}
 
 {% block content %}
-    <form method="post">
-        {{ form.csrf_token }}
-        <div>
-            {{ form.nombre.label }}
-            {{ form.nombre() }}
+<nav class="titulo"> Añadir categorias </nav>
 
+    <form method="Post" class="pdiv">
+        {{ form.csrf_token }}
+        <div class="func func-cat">
+            {{ form.nombre.label( class="txtlab") }}
+            {{ form.nombre(placeholder="Nombre", class="margin") }}
             {% if form.nombre.errors %}
                 {% for error in form.nombre.errors %}
                     <p>{{ error }}</p>
-                {% endfor %}
+                {% endfor %} 
             {% endif %}
         </div>
 
         <div>
-            {{ form.submit(class="btn") }}
+            {{ form.submit(class="bpr bpr-ac") }}
         </div>
     </form>
+</form>
+<a href="{{ url_for('cat.catp') }}" class="btn btn-warning"> Regresar</a>
 {% endblock content %}
