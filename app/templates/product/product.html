@@ -5,11 +5,16 @@
 {% endblock %}
 
 {% block content %}
-    <h1>products Page</h1>
+    <nav class="titulo">
+        <h1>
+            <a href="{{ url_for('home.cerrar') }}" class="bpr bpr-ed"> Regresar</a>
+            products Page</h1></nav>
     <h2>Lista de products</h2>
-    <a href="{{ url_for('producto.create_pro') }}" class="btn btn-success">Nuevo product</a>
-    <table id="product">
-        <thead>
+    <a href="{{ url_for('product.c_produ') }}" class="bpr bpr-ac">Nuevo producto</a>
+   
+    <nav class="a-table">
+        <table id="sale">
+            <thead>
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
@@ -17,33 +22,32 @@
                 <th>descripcion</th>
                 <th>marca</th>
                 <th>categoria</th>
-
+                
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             {% for pro in product %}
-                <tr>
-                    <td>{{ pro.id_producto }}</td>
-                    <td>{{ pro.nombre }}</td>
-                    <td>{{ pro.precio }}</td>
-                    <td>{{ pro.descripcion }}</td>
-                    <td>{{ pro.id_marca }}</td>
-                    <td>{{ pro.id_categoria }}</td>
-
+            <tr>
+                <td>{{ pro.id_producto }}</td>
+                <td>{{ pro.nombre }}</td>
+                <td>{{ pro.precio }}</td>
+                <td>{{ pro.descripcion }}</td>
+                <td>{{ pro.id_marca }}</td>
+                <td>{{ pro.id_categoria }}</td>
+                
                     <td>
-                        <a href="{{ url_for('producto.update_pro', id_producto=pro.id_producto) }}">
-                            <i class="fa fa-refresh"></i> 
-                        </a> 
-                        <form method="post" action="{{ url_for('producto.delete_pro', id_producto=pro.id_producto) }}">
-                            <button type="submit"
-                                    onclick="return confirm('seguro')">
-                                <i class="fa fa-trash"></i>
-                            </button>
-                        </form>
-                    </td>
-                </tr>
+                        
+                            <a href="{{ url_for('product.updateprod', id_producto=pro.id_producto) }} ">
+                                <button>Actualizar</button> 
+                            </a> 
+                        <form method="Post" action="{{url_for('product.delprod', id_producto=pro.id_producto) }}" >
+                            <button type="submit" onclick="return confirm('seguro')" class=""> Eliminar</button>
+                    </form>
+                </td>
+            </tr>
             {% endfor %}
         </tbody>
     </table>
+</nav>
 {% endblock %}

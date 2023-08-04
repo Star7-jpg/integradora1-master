@@ -36,4 +36,4 @@ class UpdateProductForm(FlaskForm):
     id_categoria = StringField('categoria', 
                            validators=[DataRequired()])
      
-    submit = SubmitField('Guardar')
+    submit = SubmitField('actualizar')
