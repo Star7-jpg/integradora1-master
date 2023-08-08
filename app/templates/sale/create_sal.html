@@ -48,6 +48,16 @@
             {% endif %}
         </div>
         <div>
+            {{ form.unidades_vendidas.label }}
+            {{ form.unidades_vendidas() }}
+
+            {% if form.unidades_vendidas.errors %}
+                {% for error in form.unidades_vendidas.errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div>
         <div>
             {{ form.submit(class="btn btn-success") }}
         </div>

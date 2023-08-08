@@ -18,8 +18,8 @@ def create_sal():
             total = form.total.data
             id_producto = form.id_producto.data
             id_usuario = form.id_usuario.data
-
-            sal = Sale(fecha, total, id_producto, id_usuario)
+            unidades_vendidas = form.unidades_vendidas.data
+            sal = Sale(fecha, total, id_producto, id_usuario, unidades_vendidas)
             sal.save()
             return redirect(url_for('ventas.sale'))
     

@@ -15,6 +15,9 @@ class CreateSaleForm(FlaskForm):
     id_usuario = StringField('Usuario', 
                            validators=[DataRequired()])
     
+    unidades_vendidas = StringField('Unidades Vendidas',
+                            validators=[DataRequired()])
+    
     
     submit = SubmitField('Guardar')
 
@@ -30,6 +33,9 @@ class UpdateSaleForm(FlaskForm):
 
     id_usuario = StringField('Usuario', 
                            validators=[DataRequired()])
+    
+    unidades_vendidas = StringField('Unidades Vendidas',
+                            validators=[DataRequired()])
     
      
     submit = SubmitField('Guardar')
