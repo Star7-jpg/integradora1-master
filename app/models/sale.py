@@ -45,11 +45,11 @@ class Sale:
     def get_all():
         sale = []
         with mydb.cursor(dictionary=True) as cursor:
-            sql = f"SELECT id_venta, fecha, total, id_producto, id_usuario, unidades_vendidas  FROM sale"
+            sql = f"SELECT id_venta, fecha, total, Producto, Usuario, unidades_vendidas FROM ventas_view"
             cursor.execute(sql)
             result = cursor.fetchall()
             for item in result:
-                sale.append(Sale(item["fecha"], item["total"], item["id_producto"],item["id_usuario"], item["unidades_vendidas"], item["id_venta"]))
+                sale.append(Sale(item["fecha"], item["total"], item["Producto"],item["Usuario"], item["unidades_vendidas"], item["id_venta"]))
             return sale
     
     @staticmethod
