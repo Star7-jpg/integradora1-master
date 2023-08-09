@@ -29,10 +29,10 @@ ventas
         <tr>
             <th class="corner-up">ID</th>
             <th>Fecha</th>
-            <th>Total</th>
+            <th>Unidades Vendidas</th>
             <th>Producto</th>
             <th class="corner-up2">Usuario</th>
-            <th class="corner-up2">Unidades vendidas</th>
+            <th class="corner-up2">Total</th>
             
         </tr>
     </thead>
@@ -41,10 +41,10 @@ ventas
                 <tr>
                     <td>{{ sal.id_venta }}</td>
                     <td>{{ sal.fecha }}</td>
-                    <td>{{ sal.total }}</td>
+                    <td>{{ sal.unidades_vendidas }}</td>
                     <td>{{ sal.id_producto }}</td>
                     <td>{{ sal.id_usuario }}</td>
-                    <td>{{ sal.unidades_vendidas }}</td>              
+                    <td>{{ sal.total }}</td>              
                 </tr>
             {% endfor %}
     </tbody>

@@ -17,16 +17,19 @@
                 {% endfor %}
             {% endif %}
         </div>
-        <div>
-            {{ form.total.label }}
-            {{ form.total() }}
 
-            {% if form.total.errors %}
-                {% for error in form.total.errors %}
+        <div>
+            {{ form.unidades_vendidas.label }}
+            {{ form.unidades_vendidas() }}
+
+            {% if form.unidades_vendidas.errors %}
+                {% for error in form.unidades_vendidas.errors %}
                     <p>{{ error }}</p>
                 {% endfor %}
             {% endif %}
         </div>
+
+
         <div>
             {{ form.id_producto.label }}
             {{ form.id_producto() }}
@@ -47,16 +50,18 @@
                 {% endfor %}
             {% endif %}
         </div>
-        <div>
-            {{ form.unidades_vendidas.label }}
-            {{ form.unidades_vendidas() }}
 
-            {% if form.unidades_vendidas.errors %}
-                {% for error in form.unidades_vendidas.errors %}
+        <div>
+            {{ form.total.label }}
+            {{ form.total() }}
+
+            {% if form.total.errors %}
+                {% for error in form.total.errors %}
                     <p>{{ error }}</p>
                 {% endfor %}
             {% endif %}
         </div>
+
         <div>
         <div>
             {{ form.submit(class="btn btn-success") }}

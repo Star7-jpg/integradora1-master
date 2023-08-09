@@ -1,43 +1,22 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, TextAreaField, SubmitField, SelectField
-from wtforms.validators import DataRequired
+from wtforms import StringField, DecimalField, SubmitField, SelectField, DateField, IntegerField, FloatField
+from wtforms.validators import DataRequired, NumberRange
 
 class CreateSaleForm(FlaskForm):
 
     pros=[]
+    uses=[]
 
-    fecha = StringField('Fecha', 
+    fecha = DateField('Fecha', 
                            validators=[DataRequired()])
-
-    total = StringField('Total', 
-                           validators=[DataRequired()])
+    
+    unidades_vendidas = IntegerField('Unidades Vendidas', validators=[DataRequired(),  NumberRange(min=0, max=None)])
 
     id_producto = SelectField('Producto', choices=pros, coerce=int, validate_choice=False, validators=[DataRequired()])
 
-    id_usuario = StringField('Usuario', 
-                           validators=[DataRequired()])
+    id_usuario = SelectField('Usuario', choices=uses, coerce=int, validate_choice=False, validators=[DataRequired()])
     
-    unidades_vendidas = StringField('Unidades Vendidas',
-                            validators=[DataRequired()])
-    
-    
-    submit = SubmitField('Guardar')
 
-class UpdateSaleForm(FlaskForm):
-    fecha = StringField('Fecha', 
-                           validators=[DataRequired()])
-
-    total = StringField('Total', 
-                           validators=[DataRequired()])
-
-    id_producto = StringField('Producto', 
-                           validators=[DataRequired()])
-
-    id_usuario = StringField('Usuario', 
-                           validators=[DataRequired()])
+    total = DecimalField('Total', validators=[DataRequired(), NumberRange(min=0.0, max=None)])
     
-    unidades_vendidas = StringField('Unidades Vendidas',
-                            validators=[DataRequired()])
-    
-     
     submit = SubmitField('Guardar')
