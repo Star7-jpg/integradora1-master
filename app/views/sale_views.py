@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, redirect, url_for, request, flash
 from models.sale import Sale
+from models.product import Product
 from forms.sale_forms import CreateSaleForm, UpdateSaleForm
 
 sale_views = Blueprint ('ventas', __name__)
@@ -13,14 +14,24 @@ def sale():
 @sale_views.route('/sale/create/', methods=('GET','POST'))
 def create_sal():
     form = CreateSaleForm()
+    product = Product.get_all()
+    pros = [(-1, '')]
+    for pro in product:
+        pros.append((pro.id_producto, pro.nombre))
+    form.id_producto.choices = pros
+
     if form.validate_on_submit():
-            fecha = form.fecha.data
-            total = form.total.data
-            id_producto = form.id_producto.data
-            id_usuario = form.id_usuario.data
-            unidades_vendidas = form.unidades_vendidas.data
-            sal = Sale(fecha, total, id_producto, id_usuario, unidades_vendidas)
-            sal.save()
-            return redirect(url_for('ventas.sale'))
+        fecha = form.fecha.data
+        total = form.total.data
+        id_producto = form.id_producto.data
+        id_usuario = form.id_usuario.data
+        unidades_vendidas = form.unidades_vendidas.data
+        sal = Sale( fecha=fecha, 
+                    total=total, 
+                    id_producto=id_producto, 
+                    id_usuario=id_usuario, 
+                    unidades_vendidas=unidades_vendidas)
+        sal.save()
+        return redirect(url_for('ventas.sale'))
     
     return render_template('sale/create_sal.html', form=form)

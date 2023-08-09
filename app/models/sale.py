@@ -51,6 +51,22 @@ class Sale:
             for item in result:
                 sale.append(Sale(item["fecha"], item["total"], item["Producto"],item["Usuario"], item["unidades_vendidas"], item["id_venta"]))
             return sale
+        
+
+    @staticmethod
+    def get_by_product(id_producto):
+        products = []
+        with mydb.cursor(dictionary=True) as cursor:
+            sql = f"SELECT * FROM sale WHERE id_producto = { id_producto }"
+            cursor.execute(sql)
+            result = cursor.fetchall()
+            for product in result:
+                products.append(Sale(fecha=product["fecha"],
+                                     total=product["total"],
+                                     id_producto=product["id_producto"],
+                                     id_usuario=product["id_usuario"],
+                                     unidades_vendidas=product["unidades_vendidas"],
+                                     id_venta=product["id_venta"]))
     
     @staticmethod
     def count_all():
