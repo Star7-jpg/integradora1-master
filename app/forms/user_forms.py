@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, TextAreaField, SubmitField
-from wtforms.validators import DataRequired
+from wtforms import StringField, TextAreaField, SubmitField, IntegerField
+from wtforms.validators import DataRequired, NumberRange
 
 class CreateUserForm(FlaskForm):
     nombre = StringField('Nombre', 
@@ -17,6 +17,7 @@ class CreateUserForm(FlaskForm):
     
     contrasenia = StringField('Contraseña', 
                            validators=[DataRequired()])
+    rol =  IntegerField('Rol', validators=[DataRequired(),  NumberRange(min=1, max=2)])
     
     submit = SubmitField('Guardar')
 
@@ -35,5 +36,7 @@ class UpdateUserForm(FlaskForm):
     
     contrasenia = StringField('Contraseña', 
                            validators=[DataRequired()])
+    
+    rol =  IntegerField('Rol', validators=[DataRequired(),  NumberRange(min=1, max=2)])
      
     submit = SubmitField('Guardar')

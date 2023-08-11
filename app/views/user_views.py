@@ -19,7 +19,8 @@ def create_use():
             ape_materno = form.ape_materno.data
             nom_usuario = form.nom_usuario.data
             contrasenia = form.contrasenia.data
-            use = User(nombre, ape_paterno, ape_materno, nom_usuario, contrasenia)
+            rol = form.rol.data
+            use = User(nombre, ape_paterno, ape_materno, nom_usuario, contrasenia, rol)
             use.save()
             return redirect(url_for('usuario.user'))
     
@@ -28,13 +29,14 @@ def create_use():
 @user_views.route('/user/<int:id_usuario>/update/', methods=('GET', 'POST'))
 def update_use(id_usuario):
     form = UpdateUserForm() #Obtener Cat desde id
-    use = User.get(id_usuario)
+    use = User.__get__(id_usuario)
     if form.validate_on_submit():
         use.nombre = form.nombre.data
         use.ape_paterno = form.ape_paterno.data
         use.ape_materno = form.ape_materno.data
         use.nom_usuario = form.nom_usuario.data
         use.contrasenia = form.contrasenia.data
+        use.rol = form.rol.data
         use.save()
         return redirect(url_for('usuario.user'))
     form.nombre.data = use.nombre
@@ -42,12 +44,13 @@ def update_use(id_usuario):
     form.ape_materno.data = use.ape_materno
     form.nom_usuario.data = use.nom_usuario
     form.contrasenia.data = use.contrasenia
+    form.rol.data = use.rol
     return render_template('user/create_use.html', form=form) #enviar datos a form
 
 @user_views.route('/user/<int:id_usuario>/delete/', methods=('POST', 'GET'))
 def delete_use(id_usuario):
     #Obtener Cat desde id
-    use = User.get(id_usuario)
+    use = User.__get__(id_usuario)
     use.delete()
     #enviar datos a form
     return redirect(url_for('usuario.user'))

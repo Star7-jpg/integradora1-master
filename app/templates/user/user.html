@@ -21,8 +21,10 @@ empleado
                 <th>Apellido Materno</th>
                 <th>Nombre de usuario</th>
                 <th>Contraseña</th>
+                <th>Rol</th>
+                
 
-                <th>Actions</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -34,6 +36,7 @@ empleado
                     <td>{{ use.ape_materno }}</td>
                     <td>{{ use.nom_usuario }}</td>
                     <td>{{ use.contrasenia }}</td>
+                    <td>{{ use.rol }}</td>
 
                     <td>
                         <a href="{{ url_for('usuario.update_use', id_usuario=use.id_usuario) }}">

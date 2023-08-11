@@ -1,4 +1,5 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, session
+from flask_session import Session
 
 home_views = Blueprint ('home',__name__)
 
