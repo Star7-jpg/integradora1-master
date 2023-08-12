@@ -5,10 +5,18 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Proveedores Page</h1>
-    <h2>Lista de Proveedores</h2>
-    <a href="{{ url_for('proveedor.create_sup') }}" class="btn btn-success">Nuevo Proveedor</a>
-    <table id="supplier">
+<nav class="titulo">    
+    <h1>
+<a href="{{ url_for('login.adm_home') }}" class="bpr bpr-ed"> Regresar</a>
+        Pagina de Proveedores </h1></nav>    
+    
+
+
+    <a href="{{ url_for('supplier.create_sup')}}">
+        <input type="button" value="Agregar proveedor" class="bpr bpr-ac">
+    </a>
+    <nav class="a-table">
+        <table id="sale">
         <thead>
             <tr>
                 <th>ID</th>
@@ -16,7 +24,7 @@
                 <th>Localidad</th>
                 <th>Telefono</th>
                 <th>Direccion</th>
-                <th>Actions</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -28,18 +36,19 @@
                     <td>{{ sup.telefono }}</td>
                     <td>{{ sup.direccion }}</td>
                     <td>
-                        <a href="{{ url_for('proveedor.update_sup', id_proveedor=sup.id_proveedor) }}">
-                            <i class="fa fa-refresh"></i> 
+                        <a href="{{ url_for('supplier.editar_sup', id_proveedor=sup.id_proveedor) }}">
+                            <button>Actualizar</button> 
                         </a> 
-                        <form method="post" action="{{ url_for('proveedor.delete_sup', id_proveedor=sup.id_proveedor) }}">
+                        <form method="post" action="{{ url_for('supplier.delete_sup', id_proveedor=sup.id_proveedor) }}">
                             <button type="submit"
                                     onclick="return confirm('seguro')">
-                                <i class="fa fa-trash"></i>
+                               borrar
                             </button>
                         </form>
                     </td>
                 </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+                {% endfor %}
+            </tbody>
+        </table>
+    </nav>
 {% endblock %}

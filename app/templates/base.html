@@ -6,24 +6,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<!--<style>
+    .fond
+{
+ background-image:url("{{ url_for('static', filename='images/fondo.jpg')}}" );
+ 
+}
+</style> -->
 <title>{% block title %}{% endblock %}</title>
   
 </head>
     <body>
         <header>
             <div class="fond">
-                <nav class="banner">
-                    <img src="" alt="logo" >
-                    <nav class="buscadores">
-                    <input type="text" placeholder="¿Qué estas buscando?" class ="search">
-                    <input type="button" value="Buscar" class="button-search">
-                    </nav>
-                    <a href="{{url_for('home.cerrar')}}">Cerrar Sesion</a>
-                </nav>
-            
-       
-{% block content %}
-{% endblock %}
+            {% block content %}
+            {% endblock %}
+        
 </div>
 </header>
 <footer class="footer">

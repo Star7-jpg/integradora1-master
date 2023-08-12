@@ -6,10 +6,14 @@ productos
 {% endblock %}
 
 {% block content %}
+{% include 'search.html'%}
 
-<nav class="titulo"> <h1>Reportes de ventas </h1></nav>
+<nav class="titulo">
+    <h1>
+        <a href="{{ url_for('login.adm_home') }}" class="bpr bpr-ed"> Regresar</a> 
+        Reportes de ventas </h1></nav>
 <nav class="a-table">
-  
+    
     <table id="reports">
         <thead>
             <tr>

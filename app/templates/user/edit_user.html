@@ -9,9 +9,10 @@ productos
 {% include 'insearch.html'%}
 <nav class="titulo"> <h1>
     <a href="{{ url_for('usuario.user') }}" class="bpr bpr-ed"> Regresar</a>
-    Añadir nuevos Usuarios
+    Editar los usuarios 
 </h1>
 </nav>
+
 
             <form method="Post" class="pdiv">
                 {{ form.csrf_token }}

@@ -47,14 +47,16 @@ class Category:
         
           
     @staticmethod
-    def get_all():
+    def get_all(limit=10, page=1):
+        offset = limit * page - limit 
         categoria = []
         with mydb.cursor(dictionary=True) as cursor:
-            sql = f"SELECT nombre,id_categoria FROM category"
+            sql = f"SELECT nombre,id_categoria FROM category limit { limit } offset { offset }"
             cursor.execute(sql)
             result = cursor.fetchall()
-            for item in result:
-                categoria.append(Category(item["nombre"], item["id_categoria"]))
+            for cats in result:
+                categoria.append(Category(nombre=cats["nombre"],
+                                           id_categoria=cats["id_categoria"]))
             return categoria
     
     @staticmethod
@@ -67,3 +69,12 @@ class Category:
         
     def __str__(self):
         return f"{ self.id_categoria } - { self.nombre }"
+    
+
+    @staticmethod
+    def count():
+        with mydb.cursor(dictionary=True) as cursor:
+            sql= "select count(id_categoria) as total from category"
+            cursor.execute(sql)
+            result =cursor.fetchone()
+            return result['total']

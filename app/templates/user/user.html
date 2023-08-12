@@ -5,10 +5,12 @@ empleado
 {% endblock %}
 
 {% block content %}
-
-<nav class="titulo"> <h1>Personal</h1></nav>
+{% include 'search.html' %}
+<nav class="titulo"> <h1>
+    <a href="{{ url_for('login.adm_home') }}" class="bpr bpr-ed"> Regresar</a> 
+Personal</h1></nav>
 <a href="{{ url_for('usuario.create_use')}}">
-    <input type="button" value="Añadir empleado" class="bpr bpr-ac">
+<input type="button" value="Añadir empleado" class="bpr bpr-ac">
 </a>
 <nav class="a-table">
 

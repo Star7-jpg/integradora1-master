@@ -1,14 +1,21 @@
 from flask import Blueprint, render_template, redirect ,url_for,request,flash
 from models.categories import Category
+import math
 
 from forms.category_forms import CreateCategoryForm, UpdateCategoryForm
 category_view =Blueprint('cat',__name__)
 
 @category_view.route("/categorias/")
-def catp():
-    category=Category.get_all()
+@category_view.route("/categorias/<int:page>/")
+def catp(page=1):
+    limit=10
+
+    category=Category.get_all(limit=limit, page=page)
+    total_cat = Category.count()
+    pages = math.ceil(total_cat / limit)
+    
     return render_template("/categories/categories.html",
-                            categories=category)
+                            categories=category, page=page, pages=pages)
 
 @category_view.route("/crear", methods=('GET','POST'))
 def catn():

@@ -1,25 +1,24 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Agregar Categoria
+    Agregar Marca
 {% endblock %}
 
 {% block content %}
 <nav class="titulo"><h1>
-    <a href="{{ url_for('cat.catp') }}" class="bpr bpr-ed"> Regresar</a>
-    Añadir categorias 
-</h1>
-</nav>
+    <a href="{{ url_for('brand.brands') }}" class="bpr bpr-ed"> Regresar</a>
+Editar mis marcas
+</h1></nav>
 
     <form method="Post" class="pdiv">
         {{ form.csrf_token }}
-        <div class="func func-cat">
-            {{ form.nombre.label( class="txtlab") }}
-            {{ form.nombre(placeholder="Nombre", class="margin") }}
+        <div class="func func">
+            {{ form.nombre.label }}
+            {{ form.nombre(placeholder="Nombre") }}
             {% if form.nombre.errors %}
                 {% for error in form.nombre.errors %}
                     <p>{{ error }}</p>
-                {% endfor %} 
+                {% endfor %}
             {% endif %}
         </div>
 
@@ -27,5 +26,4 @@
             {{ form.submit(class="bpr bpr-ac") }}
         </div>
     </form>
-</form>
 {% endblock content %}

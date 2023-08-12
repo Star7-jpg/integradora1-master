@@ -5,67 +5,59 @@
 {% endblock %}
 
 {% block content %}
-    <form method="post" enctype="multipart/form-data">
+<nav class="titulo"> <h1>
+    <a href="{{ url_for('login.adm_home') }}" class="bpr bpr-ed"> Regresar</a>
+    Añadir a venta</h1></nav>
+
+
+    <form method="post" class="pdiv">
+
         {{ form.csrf_token }}
-        <div>
-            {{ form.fecha.label }}
-            {{ form.fecha(placeholder="Fecha") }}
-
-            {% if form.fecha.errors %}
+         <div class="func func-sale">
+                {{ form.fecha.label(class="txtlab") }}
+                {{ form.fecha(placeholder="Fecha", class="margin") }}
+                {% if form.fecha.errors %}
                 {% for error in form.fecha.errors %}
-                    <p>{{ error }}</p>
+                <p>{{ error }}</p>
                 {% endfor %}
-            {% endif %}
-        </div>
+                {% endif %}
 
-        <div>
-            {{ form.unidades_vendidas.label }}
-            {{ form.unidades_vendidas() }}
-
-            {% if form.unidades_vendidas.errors %}
+                {{ form.unidades_vendidas.label(class="txtlab") }}
+                {{ form.unidades_vendidas( class="margin") }}
+                {% if form.unidades_vendidas.errors %}
                 {% for error in form.unidades_vendidas.errors %}
-                    <p>{{ error }}</p>
+                <p>{{ error }}</p>
                 {% endfor %}
-            {% endif %}
-        </div>
+                {% endif %}
 
-
-        <div>
-            {{ form.id_producto.label }}
-            {{ form.id_producto() }}
-
-            {% if form.id_producto.errors %}
+                {{ form.id_producto.label(class="txtlab") }}
+                {{ form.id_producto(class="margin") }}
+                {% if form.id_producto.errors %}
                 {% for error in form.id_producto.errors %}
-                    <p>{{ error }}</p>
+                <p>{{ error }}</p>
                 {% endfor %}
-            {% endif %}
-        </div>
-        <div>
-            {{ form.id_usuario.label }}
-            {{ form.id_usuario() }}
+                {% endif %}
 
-            {% if form.id_usuario.errors %}
+        
+                {{ form.id_usuario.label(class="txtlab") }}
+                {{ form.id_usuario(class="margin") }}
+                {% if form.id_usuario.errors %}
                 {% for error in form.id_usuario.errors %}
-                    <p>{{ error }}</p>
+                <p>{{ error }}</p>
                 {% endfor %}
-            {% endif %}
-        </div>
+                {% endif %}
 
-        <div>
-            {{ form.total.label }}
-            {{ form.total() }}
-
-            {% if form.total.errors %}
+                {{ form.total.label(class="txtlab") }}
+                {{ form.total(class="margin") }}
+                {% if form.total.errors %}
                 {% for error in form.total.errors %}
-                    <p>{{ error }}</p>
+                <p>{{ error }}</p>
                 {% endfor %}
-            {% endif %}
+                {% endif %}
         </div>
 
-        <div>
-        <div>
             {{ form.submit(class="btn btn-success") }}
-        </div>
+        
     </form>
-    <a href="{{ url_for('ventas.sale') }}" class="btn btn-warning"> Regresar</a>
+  
 {% endblock content %}

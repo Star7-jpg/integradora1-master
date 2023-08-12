@@ -5,14 +5,14 @@
 {% endblock %}
 
 {% block content %}
-
+{% include 'insearch.html'%}
 <nav class="titulo">
     <h1>
-        <a href="{{ url_for('home.cerrar') }}" class="bpr bpr-ed"> Regresar</a>
-        Categories Page</h1></nav>
-
-    <h2>Lista de Categorias</h2>
-    <a href="{{ url_for('cat.catn') }}" class="bpr bpr-ac">Nueva Categoria</a>
+        <a href="{{ url_for('login.adm_home') }}" class="bpr bpr-ed"> Regresar</a>
+        Categorias</h1></nav>
+    <a href="{{ url_for('cat.catn') }}">
+        <input type="button" value="Añadir categorias" class="bpr bpr-ac">
+    </a>
     <nav class="a-table">
 
         <table id="sale">
@@ -21,7 +21,7 @@
                 <th>ID</th>
                 <th>Nombre</th>
        
-                <th>Actions</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -33,7 +33,8 @@
                         <a href="{{ url_for('cat.cate', id_categoria=cat.id_categoria) }}">
                             <button>Actualizar</button>
                         </a> 
-                        <form method="post" action="{{ url_for('cat.delete_cat', id_categoria=cat.id_categoria) }}">
+                        <form method="Post" action="{{ url_for('cat.delete_cat', id_categoria=cat.id_categoria) }}">
+                            <input type="hidden" name="page" value="{{ page }}">
                             <button type="submit" onclick="return confirm('¿seguro de borrar este objeto?')" class="fa">Eliminar</button>
                     </form>
                 </td>
@@ -41,5 +42,8 @@
             {% endfor %}
         </tbody>
     </table>
+    {% for i in range(pages) %}
+<a href="{{ url_for('cat.catp', page=(i + 1)) }}" class="pasar">{{ i + 1 }}</a>
+{% endfor %}
 </nav>
 {% endblock %}

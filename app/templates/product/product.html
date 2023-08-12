@@ -5,12 +5,16 @@
 {% endblock %}
 
 {% block content %}
+
+{% include 'search.html'%}
+
     <nav class="titulo">
         <h1>
-            <a href="{{ url_for('home.cerrar') }}" class="bpr bpr-ed"> Regresar</a>
-            products Page</h1></nav>
-    <h2>Lista de products</h2>
-    <a href="{{ url_for('product.c_produ') }}" class="bpr bpr-ac">Nuevo producto</a>
+            <a href="{{ url_for('login.adm_home') }}" class="bpr bpr-ed"> Regresar</a>
+            Lista productos</h1></nav>
+   
+    <a href="{{ url_for('product.c_produ') }}">
+        <input type="button" value="Nuevo producto" class="bpr bpr-ac"></a>
    
     <nav class="a-table">
         <table id="sale">
@@ -20,6 +24,7 @@
                 <th>Nombre</th>
                 <th>precio</th>
                 <th>descripcion</th>
+                <th>unidades</th>
                 <th>marca</th>
                 <th>categoria</th>
                 
@@ -33,21 +38,28 @@
                 <td>{{ pro.nombre }}</td>
                 <td>{{ pro.precio }}</td>
                 <td>{{ pro.descripcion }}</td>
+                <td>{{ pro.Unidades }}</td>
                 <td>{{ pro.id_marca }}</td>
                 <td>{{ pro.id_categoria }}</td>
                 
                     <td>
                         
                             <a href="{{ url_for('product.updateprod', id_producto=pro.id_producto) }} ">
-                                <button>Actualizar</button> 
+                                <button>Actualizar</button>
                             </a> 
                         <form method="Post" action="{{url_for('product.delprod', id_producto=pro.id_producto) }}" >
+                            <input type="hidden" name="page" value="{{ page }}">
                             <button type="submit" onclick="return confirm('seguro')" class=""> Eliminar</button>
                     </form>
                 </td>
             </tr>
+
+        
             {% endfor %}
         </tbody>
     </table>
+    {% for i in range(pages) %}
+<a href="{{ url_for('product.productos', page=(i + 1)) }}" class="pasar">{{ i + 1 }}</a>
+{% endfor %}
 </nav>
 {% endblock %}

@@ -5,9 +5,15 @@
 {% endblock %} 
 
 {% block content %}
-<nav class="titulo"> editar productos </nav>
+
+<nav class="titulo"> <h1>
+<a href="{{ url_for('product.productos') }}"  class="bpr bpr-ed"> Regresar</a>
+    Editar productos
+</h1>
+</nav>
 
     <form method="Post" class="pdiv">
+        <input type="hidden" name="page" value="{{ page }}">
         {{ form.csrf_token }}
         <div class="func func-pro">
             {{ form.nombre.label(class ="txtlab")}}
@@ -33,6 +39,14 @@
                     <p>{{ error }}</p>
                 {% endfor %}
             {% endif %}
+
+            {{ form.Unidades.label (class ="txtlab") }}
+            {{ form.Unidades(placeholder="unidades", class="margin") }}
+            {% if form.Unidades.errors %}
+                {% for error in form.Unidades.errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            {% endif %}
        
             {{ form.id_marca.label(class ="txtlab") }}
             {{ form.id_marca(placeholder="Marca", class="margin") }}
@@ -54,5 +68,4 @@
      
             {{ form.submit(class="bpr bpr-ac") }}
     </form>
-    <a href="{{ url_for('product.productos') }}" class="btn btn-warning"> Regresar</a>
 {% endblock content %}

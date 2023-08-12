@@ -5,12 +5,16 @@
 {% endblock %}
 
 {% block content %}
-    <form method="post">
+<nav class="titulo"><h1>
+    <a href="{{ url_for('brand.brands') }}" class="bpr bpr-ed"> Regresar</a>
+añadir nuevas marcas
+</h1></nav>
+
+    <form method="Post" class="pdiv">
         {{ form.csrf_token }}
-        <div>
+        <div class="func func">
             {{ form.nombre.label }}
             {{ form.nombre(placeholder="Nombre") }}
-
             {% if form.nombre.errors %}
                 {% for error in form.nombre.errors %}
                     <p>{{ error }}</p>
@@ -19,8 +23,7 @@
         </div>
 
         <div>
-            {{ form.submit(class="btn btn-success") }}
+            {{ form.submit(class="bpr bpr-ac") }}
         </div>
     </form>
-    <a href="{{ url_for('marca.brand') }}" class="btn btn-warning"> Regresar</a>
 {% endblock content %}

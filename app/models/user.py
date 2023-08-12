@@ -35,6 +35,7 @@ class User:
         # Update an Object
         else:
             with mydb.cursor() as cursor:
+                self.contrasenia = generate_password_hash(self.contrasenia)
                 sql = "UPDATE user SET nombre = %s, ape_paterno = %s, ape_materno = %s, nom_usuario = %s, contrasenia = %s, rol=%s WHERE id_usuario = %s"
                 val = (self.nombre, self.ape_paterno, self.ape_materno, self.nom_usuario, self.contrasenia, self.rol, self.id_usuario)
                 cursor.execute(sql, val)
@@ -98,6 +99,14 @@ class User:
                 if check_password_hash(user["contrasenia"], contrasenia):
                     return User.__get__(user["id_usuario"])
             return None
+    
+    @staticmethod
+    def count_all():
+        with mydb.cursor() as cursor:
+            sql = f"SELECT COUNT(id_usuario) FROM user"
+            cursor.execute(sql)
+            result = cursor.fetchone()
+            return result[0]
         
     def __str__(self):
         return f"{ self.id_usuario } - { self.nombre } - { self.ape_paterno } - { self.ape_materno } - { self.nom_usuario } - { self.contrasenia } - { self.rol }"

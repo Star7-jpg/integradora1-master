@@ -40,7 +40,7 @@ class Supplier:
     @staticmethod
     def get(id_proveedor):
         with mydb.cursor(dictionary=True) as cursor:
-            sql = f"SELECT nombre, localidad, telefono, direccion FROM supplier WHERE id_proveedor = { id_proveedor }"
+            sql = f"SELECT * FROM supplier WHERE id_proveedor = { id_proveedor }"
             cursor.execute(sql)
             result = cursor.fetchone()
             print(result)

@@ -18,7 +18,7 @@ def create_sal():
 
     form = CreateSaleForm()
 
-    product = Product.get_all()
+    product = Product.get_all2()
     pros = [(-1, '')]
     for pro in product:
         pros.append((pro.id_producto, pro.nombre))

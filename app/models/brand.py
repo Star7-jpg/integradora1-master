@@ -13,7 +13,7 @@ class Brand:
         if self.id_marca is None:
             with mydb.cursor() as cursor:
                 sql = "INSERT INTO brand(nombre) VALUES(%s)"
-                val = (self.nombre)
+                val = (self.nombre,)
                 cursor.execute(sql, val)
                 mydb.commit()
                 self.id_marca = cursor.lastrowid
@@ -45,14 +45,16 @@ class Brand:
             return nombre
         
     @staticmethod
-    def get_all():
+    def get_all(limit=10,page=1):
+        offset = limit *page - limit
         brand = []
         with mydb.cursor(dictionary=True) as cursor:
-            sql = f"SELECT id_marca, nombre FROM brand"
+            sql = f"SELECT id_marca, nombre FROM brand limit { limit } offset { offset }"
             cursor.execute(sql)
             result = cursor.fetchall()
-            for item in result:
-                brand.append(Brand(item["nombre"], item["id_marca"]))
+            for bran in result:
+                brand.append(Brand(nombre=bran["nombre"],
+                                    id_marca=bran["id_marca"]))
             return brand
     
     @staticmethod
@@ -65,3 +67,11 @@ class Brand:
         
     def __str__(self):
         return f"{ self.id_marca } - { self.nombre }"
+    
+    @staticmethod
+    def count():
+        with mydb.cursor (dictionary=True) as cursor:
+            sql = "select count(id_marca) as total from brand"
+            cursor.execute(sql)
+            result = cursor.fetchone()
+            return result['total']

@@ -5,15 +5,11 @@
 {% endblock %}
 
 {% block content %}
-<nav class="titulo"> <h1>
-    <a href="{{ url_for('supplier.suppliers') }}" class="bpr bpr-ed"> Regresar</a>
-    añadir nuevos Proveedores
-</h1>
 
-</nav>
-    <form method="Post" class="pdiv">
+
+    <form method="post">
         {{ form.csrf_token }}
-        <div method="POST" class="func func">
+        <div>
             {{ form.nombre.label }}
             {{ form.nombre(placeholder="Nombre") }}
 
@@ -22,7 +18,8 @@
                     <p>{{ error }}</p>
                 {% endfor %}
             {% endif %}
-        
+        </div>
+        <div>
             {{ form.localidad.label }}
             {{ form.localidad() }}
 
@@ -31,7 +28,8 @@
                     <p>{{ error }}</p>
                 {% endfor %}
             {% endif %}
-       
+        </div>
+        <div>
             {{ form.telefono.label }}
             {{ form.telefono() }}
 
@@ -40,7 +38,8 @@
                     <p>{{ error }}</p>
                 {% endfor %}
             {% endif %}
-       
+        </div>
+        <div>
             {{ form.direccion.label }}
             {{ form.direccion() }}
 
@@ -49,9 +48,10 @@
                     <p>{{ error }}</p>
                 {% endfor %}
             {% endif %}
-        
         </div>
+        <div>
             {{ form.submit(class="btn btn-success") }}
-        
+        </div>
     </form>
+    <a href="{{ url_for('proveedor.supplier') }}" class="btn btn-warning"> Regresar</a>
 {% endblock content %}

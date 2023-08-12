@@ -6,9 +6,10 @@ productos
 {% endblock %}
 
 {% block content %}
+{% include 'insearch.html' %}
 <nav class="titulo"><h1>
     <a href="{{ url_for('cat.catp') }}" class="bpr bpr-ed"> Regresar</a>
-    editar categorias 
+    Editar categorias 
 </h1>
 </nav>
 
@@ -29,5 +30,4 @@ productos
                 {{ form.submit(class="bpr bpr-ac") }}
             </div>
         </form>
-        <a href="{{ url_for('cat.catp') }}" class="btn btn-warning"> Regresar</a>
 {% endblock content %}

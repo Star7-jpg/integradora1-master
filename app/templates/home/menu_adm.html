@@ -2,15 +2,18 @@
 
 {% block title %}
 categorias
-
 {% endblock %}
 
 {% block content %}
+{% include 'insearch.html' %}
+
 
 <div>
-    <h1 class="titulo">Menú de adminsitrador</h1>
+    <nav class="titulo"><h1>
+        Menú de adminsitrador</h1>
+    </nav>
     <nav id="container">
-        <a href="{{ url_for('product.productos') }}" class="options">
+        <a href="{{ url_for('product.productos') }}" class="options op-">
                 <img src="" alt="imagen" >
                 <p>productos</p>
             </a>
@@ -29,7 +32,19 @@ categorias
                 <img src="" alt="imagen" >
                 <p>Venta y Reportes</p>
             </a>
-    </nav>
+        </nav>
+        
+            <nav id="container1">
+                
+                <a href="{{ url_for('brand.brands')}}" class="options">
+                    <img src="" alt="imagen" >
+                    <p>Marcas</p>
+                </a>
+                <a href="{{ url_for('supplier.suppliers')}}" class="options">
+                    <img src="" alt="imagen" >
+                    <p>proveedores</p>
+                </a>
+            </nav>
 </div>
 
 </header>

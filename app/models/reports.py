@@ -4,12 +4,13 @@ mydb = get_connection()
 
 class Reports:
 
-    def __init__(self, fecha, total, id_producto, id_usuario, id_venta=None):
+    def __init__(self, fecha, total, id_producto, id_usuario, unidades_vendidas, id_venta=None):
         self.id_venta = id_venta
         self.fecha = fecha
         self.total = total
         self.id_producto = id_producto
         self.id_usuario = id_usuario
+        self.unidades_vendidas = unidades_vendidas
         
     @staticmethod
     def get(id_venta):
@@ -25,11 +26,11 @@ class Reports:
     def get_all():
         sale = []
         with mydb.cursor(dictionary=True) as cursor:
-            sql = f"SELECT id_venta, fecha, total, id_producto, id_usuario  FROM sale"
+            sql = f"SELECT id_venta, fecha, total, Producto, Usuario, unidades_vendidas FROM ventas_view"
             cursor.execute(sql)
             result = cursor.fetchall()
             for item in result:
-                sale.append(Reports(item["fecha"], item["total"], item["id_producto"],item["id_usuario"],item["id_venta"]))
+                sale.append(Reports(item["fecha"], item["total"], item["Producto"],item["Usuario"], item["unidades_vendidas"], item["id_venta"]))
             return sale
     
     @staticmethod

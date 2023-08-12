@@ -5,14 +5,25 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Marcas Page</h1>
-    <h2>Lista de Marcas</h2>
-    <a href="{{ url_for('marca.create_bra') }}" class="btn btn-success">Nuevo marca</a>
-    <table id="brand">
-        <thead>
+<nav class="titulo">
+
+    
+    <h1>
+        <a href="{{ url_for('login.adm_home') }}" class="bpr bpr-ed"> Regresar</a> 
+        Marcas</h1></nav>
+
+    <a href="{{ url_for('brand.create_bra')}}">
+        <input type="button" value="Añadir categorias" class="bpr bpr-ac">
+    </a>
+    <nav class="a-table">
+
+
+        <table id="sale">
+            <thead>
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
+                <th>cantidad de productos de</th>
 
                 <th>Actions</th>
             </tr>
@@ -22,15 +33,16 @@
                 <tr>
                     <td>{{ bra.id_marca }}</td>
                     <td>{{ bra.nombre }}</td>
+                    <td>{{ bra.productos }}</td>
 
                     <td>
-                        <a href="{{ url_for('marca.update_bra', id_marca=bra.id_marca) }}">
-                            <i class="fa fa-refresh"></i> 
+                        <a href="{{ url_for('brand.editar_bra', id_marca=bra.id_marca) }}">
+                            <button>Actualizar</button>
                         </a> 
-                        <form method="post" action="{{ url_for('marca.delete_bra', id_marca=bra.id_marca) }}">
+                        <form method="post" action="{{ url_for('brand.eliminar_bra', id_marca=bra.id_marca) }}">
                             <button type="submit"
                                     onclick="return confirm('seguro')">
-                                <i class="fa fa-trash"></i>
+                                Eliminar
                             </button>
                         </form>
                     </td>
@@ -38,4 +50,9 @@
             {% endfor %}
         </tbody>
     </table>
+    {% for i in range(pages) %}
+    <a href="{{ url_for('brand.brands', page=(i + 1)) }}" class="pasar">{{ i + 1 }}</a>
+    {% endfor %}
+
+</nav>
 {% endblock %}
