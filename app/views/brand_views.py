@@ -35,8 +35,8 @@ def editar_bra(id_marca):
     form.nombre.data =bra.nombre
     return render_template('/brand/editar_bra.html', form=form)
 
-@brand_views.route("/Marca/<int:id_marca>/Editar", methods=('POST',))
+@brand_views.route("/Marca/<int:id_marca>/eliminar", methods=('POST',))
 def eliminar_bra(id_marca):
     br =Brand.get(id_marca)
     br.delete()
-    return render_template('/brand/create_bra.html')
+    return redirect(url_for('brand.brands'))

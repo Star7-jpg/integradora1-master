@@ -26,11 +26,11 @@ class Reports:
     def get_all():
         sale = []
         with mydb.cursor(dictionary=True) as cursor:
-            sql = f"SELECT id_venta, fecha, total, Producto, Usuario, unidades_vendidas FROM ventas_view"
+            sql = f"SELECT id_venta, fecha, total, producto, usuario, unidades_vendidas FROM ventas_view"
             cursor.execute(sql)
             result = cursor.fetchall()
             for item in result:
-                sale.append(Reports(item["fecha"], item["total"], item["Producto"],item["Usuario"], item["unidades_vendidas"], item["id_venta"]))
+                sale.append(Reports(item["fecha"], item["total"], item["producto"],item["usuario"], item["unidades_vendidas"], item["id_venta"]))
             return sale
     
     @staticmethod
