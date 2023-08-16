@@ -5,6 +5,8 @@
 {% endblock %}
 
 {% block content %}
+
+{% include 'search.html'%}
 <nav class="titulo">
 
     
@@ -13,7 +15,7 @@
         Marcas</h1></nav>
 
     <a href="{{ url_for('brand.create_bra')}}">
-        <input type="button" value="Añadir categorias" class="bpr bpr-ac">
+        <input type="button" value="Añadir Nueva Marca " class="bpr bpr-ac">
     </a>
     <nav class="a-table">
 
@@ -34,15 +36,15 @@
                     <td>{{ bra.id_marca }}</td>
                     <td>{{ bra.nombre }}</td>
                     <td>{{ bra.unidades_totales }}</td>
-                    <td>
+                    <td class="acciones">
                         <a href="{{ url_for('brand.editar_bra', id_marca=bra.id_marca) }}">
-                            <button>Actualizar</button>
+                            <img src="{{ url_for('static', filename='resource/actualizar.png') }}" alt="actualizar" class="as">
                         </a> 
                         <form method="post" action="{{ url_for('brand.eliminar_bra', id_marca=bra.id_marca) }}">
                             <button type="submit"
-                                    onclick="return confirm('seguro')">
-                                Eliminar
-                            </button>
+                                    onclick="return confirm('seguro')"  class="ad">
+                                    <img src="{{ url_for('static', filename='resource/eliminar.png') }}" alt="borrar" class="ad">
+                                </button>
                         </form>
                     </td>
 

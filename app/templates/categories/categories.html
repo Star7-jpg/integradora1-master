@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-{% include 'insearch.html'%}
+{% include 'search.html'%}
 <nav class="titulo">
     <h1>
         <a href="{{ url_for('login.adm_home') }}" class="bpr bpr-ed"> Regresar</a>
@@ -20,8 +20,7 @@
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
-                <th>Unidades totales</th>
-                
+       
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -30,14 +29,17 @@
                 <tr>
                     <td>{{ cat.id_categoria }}</td>
                     <td>{{ cat.nombre }}</td>
-                    <td>{{ cat.unidades_totales }}</td>
-                    <td>
+                    <td class="acciones">
                         <a href="{{ url_for('cat.cate', id_categoria=cat.id_categoria) }}">
-                            <button>Actualizar</button>
+                            
+                            <img src="{{ url_for('static', filename='resource/actualizar.png') }}" alt="actualizar" class="as">
                         </a> 
                         <form method="Post" action="{{ url_for('cat.delete_cat', id_categoria=cat.id_categoria) }}">
                             <input type="hidden" name="page" value="{{ page }}">
-                            <button type="submit" onclick="return confirm('¿seguro de borrar este objeto?')" class="fa">Eliminar</button>
+                            <button type="submit" onclick="return confirm('¿seguro de borrar este objeto?')" class="ad">
+                                <img src="{{ url_for('static', filename='resource/eliminar.png') }}" alt="borrar" class="ad">
+                                
+                            </button>
                     </form>
                 </td>
             </tr>

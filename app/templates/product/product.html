@@ -42,14 +42,18 @@
                 <td>{{ pro.id_marca }}</td>
                 <td>{{ pro.id_categoria }}</td>
                 
-                    <td>
+                    <td class="acciones">
                         
                             <a href="{{ url_for('product.updateprod', id_producto=pro.id_producto) }} ">
-                                <button>Actualizar</button>
+                                
+                                <img src="{{ url_for('static', filename='resource/actualizar.png') }}" alt="actualizar" class="as">
                             </a> 
-                        <form method="Post" action="{{url_for('product.delprod', id_producto=pro.id_producto) }}" >
-                            <input type="hidden" name="page" value="{{ page }}">
-                            <button type="submit" onclick="return confirm('seguro')" class=""> Eliminar</button>
+                            <form method="Post" action="{{url_for('product.delprod', id_producto=pro.id_producto) }}" >
+                                <input type="hidden" name="page" value="{{ page }}">
+                                <button type="submit" onclick="return confirm('seguro')" class="ad">
+                                
+                                    <img src="{{ url_for('static', filename='resource/eliminar.png') }}" alt="borrar" class="ad">
+                                </button>
                     </form>
                 </td>
             </tr>

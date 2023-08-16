@@ -5,6 +5,6 @@ def get_connection():
         host="localhost",
         user="root",
         password="",
-        database="papeleria2"
+        database="papeleria2(3)"
     )
     return mydb

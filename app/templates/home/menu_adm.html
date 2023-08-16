@@ -14,35 +14,35 @@ categorias
     </nav>
     <nav id="container">
         <a href="{{ url_for('product.productos') }}" class="options op-">
-                <img src="" alt="imagen" >
-                <p>productos</p>
+            <p class="text a ">Productos</p>
+            <img src="{{ url_for('static', filename='resource/prod.jpg') }}" alt="imagen"  class="img-men">
             </a>
 
             <a href="{{ url_for('usuario.user') }}" class="options">
-                <img src="" alt="imagen" >
-                <p>Personal</p>
+                <p class="text b">Personal</p>
+                <img src="{{ url_for('static', filename='resource/Usuarios.jpg') }}" alt="imagen" class="img-men" >
             </a>
         
             <a href="{{ url_for('cat.catp')}}" class="options">
-                <img src="" alt="imagen" >
-                <p>Categoria</p>
+                <p class="text c">Categoria</p>
+                <img src="{{ url_for('static', filename='resource/cateogrias.jpg') }}" alt="imagen" class="img-men" >
             </a>
         
             <a href="{{ url_for('report.reports') }}" class="options">
-                <img src="" alt="imagen" >
-                <p>Venta y Reportes</p>
+                <p class="text d">Venta y Reportes</p>
+                <img src="{{ url_for('static', filename='resource/reportes.jpg') }}" alt="imagen" class="img-men" >
             </a>
         </nav>
         
             <nav id="container1">
                 
                 <a href="{{ url_for('brand.brands')}}" class="options">
-                    <img src="" alt="imagen" >
-                    <p>Marcas</p>
+                    <p class=" text e">Marcas</p>
+                    <img src="{{ url_for('static', filename='resource/marca.jpg') }}" alt="imagen" class="img-men" >
                 </a>
                 <a href="{{ url_for('supplier.suppliers')}}" class="options">
-                    <img src="" alt="imagen" >
-                    <p>proveedores</p>
+                    <p class="text f">Proveedores</p>
+                    <img src="{{ url_for('static', filename='resource/proveedor.jpg') }}" alt="imagen" class="img-men" >
                 </a>
             </nav>
 </div>

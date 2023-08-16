@@ -9,7 +9,7 @@ from models.brand import Brand
 
 product_views =Blueprint ('product',__name__)
 
-@product_views.route("/productos")
+@product_views.route("/product")
 @product_views.route("/productos/<int:page>/")
 def productos(page=1):
     product = Product.get_all2()

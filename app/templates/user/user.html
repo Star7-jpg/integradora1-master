@@ -22,7 +22,7 @@ Personal</h1></nav>
                 <th>Apellido Paterno</th>
                 <th>Apellido Materno</th>
                 <th>Nombre de usuario</th>
-                <th>Contraseña</th>
+             
                 <th>Rol</th>
                 
 
@@ -37,15 +37,19 @@ Personal</h1></nav>
                     <td>{{ use.ape_paterno }}</td>
                     <td>{{ use.ape_materno }}</td>
                     <td>{{ use.nom_usuario }}</td>
-                    <td>{{ use.contrasenia }}</td>
+                    
                     <td>{{ use.rol }}</td>
 
-                    <td>
+                    <td class="acciones">
                         <a href="{{ url_for('usuario.update_use', id_usuario=use.id_usuario) }}">
-                            <button>Actualizar</button>
+                           
+                            <img src="{{ url_for('static', filename='resource/actualizar.png') }}" alt="actualizar" class="as">
                         </a> 
                         <form method="post" action="{{ url_for('usuario.delete_use', id_usuario=use.id_usuario) }}">
-                            <button type="submit" onclick="return confirm('seguro')">Eliminar</button>
+                            <button type="submit" onclick="return confirm('seguro')" class="ad">
+                                
+                                <img src="{{ url_for('static', filename='resource/eliminar.png') }}" alt="borrar" class="ad">
+                            </button>
                         </form>
                     </td>
                 </tr>
