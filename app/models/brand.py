@@ -4,9 +4,10 @@ mydb = get_connection()
 
 class Brand:
 
-    def __init__(self, nombre, id_marca=None):
+    def __init__(self, nombre,  id_marca=None, unidades_totales = None,):
         self.id_marca = id_marca
         self.nombre = nombre
+        self.unidades_totales = unidades_totales
         
     def save(self):
         # Create a New Object in DB
@@ -49,11 +50,12 @@ class Brand:
         offset = limit *page - limit
         brand = []
         with mydb.cursor(dictionary=True) as cursor:
-            sql = f"SELECT id_marca, nombre FROM brand limit { limit } offset { offset }"
+            sql = f"SELECT id_marca, nombre, unidades_totales FROM brand limit { limit } offset { offset }"
             cursor.execute(sql)
             result = cursor.fetchall()
             for bran in result:
                 brand.append(Brand(nombre=bran["nombre"],
+                                   unidades_totales=bran["unidades_totales"],
                                     id_marca=bran["id_marca"]))
             return brand
     

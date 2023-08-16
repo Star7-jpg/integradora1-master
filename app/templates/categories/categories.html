@@ -20,7 +20,8 @@
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
-       
+                <th>Unidades totales</th>
+                
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -29,6 +30,7 @@
                 <tr>
                     <td>{{ cat.id_categoria }}</td>
                     <td>{{ cat.nombre }}</td>
+                    <td>{{ cat.unidades_totales }}</td>
                     <td>
                         <a href="{{ url_for('cat.cate', id_categoria=cat.id_categoria) }}">
                             <button>Actualizar</button>

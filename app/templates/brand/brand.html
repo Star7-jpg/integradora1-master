@@ -23,9 +23,9 @@
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
-                <th>cantidad de productos de</th>
+                <th>Unidades Totales</th>
 
-                <th>Actions</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -33,8 +33,7 @@
                 <tr>
                     <td>{{ bra.id_marca }}</td>
                     <td>{{ bra.nombre }}</td>
-                    <td>{{ bra.productos }}</td>
-
+                    <td>{{ bra.unidades_totales }}</td>
                     <td>
                         <a href="{{ url_for('brand.editar_bra', id_marca=bra.id_marca) }}">
                             <button>Actualizar</button>
@@ -46,6 +45,7 @@
                             </button>
                         </form>
                     </td>
+
                 </tr>
             {% endfor %}
         </tbody>

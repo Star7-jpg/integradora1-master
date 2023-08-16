@@ -4,9 +4,10 @@ mydb = get_connection()
 
 class Category:
 
-    def __init__(self, nombre, id_categoria=None):
+    def __init__(self, nombre,  id_categoria=None, unidades_totales=None):
         self.id_categoria = id_categoria
         self.nombre = nombre
+        self.unidades_totales = unidades_totales
         
 
     def save(self):
@@ -51,11 +52,12 @@ class Category:
         offset = limit * page - limit 
         categoria = []
         with mydb.cursor(dictionary=True) as cursor:
-            sql = f"SELECT nombre,id_categoria FROM category limit { limit } offset { offset }"
+            sql = f"SELECT nombre,id_categoria, unidades_totales FROM category limit { limit } offset { offset }"
             cursor.execute(sql)
             result = cursor.fetchall()
             for cats in result:
                 categoria.append(Category(nombre=cats["nombre"],
+                                          unidades_totales=cats["unidades_totales"],
                                            id_categoria=cats["id_categoria"]))
             return categoria
     
