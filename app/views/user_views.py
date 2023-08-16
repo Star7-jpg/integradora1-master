@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, url_for, request, flash
+from flask import Blueprint, render_template, redirect, url_for, request, flash, session, abort
 from models.user import User
 from forms.user_forms import CreateUserForm, UpdateUserForm
 
@@ -6,9 +6,12 @@ user_views = Blueprint ('usuario', __name__)
 
 @user_views.route('/user/')
 def user():
-    user = User.get_all()
-    return render_template('user/user.html',
+    if session.get('user')['rol'] == 1:
+        user = User.get_all()
+        return render_template('user/user.html',
                            user=user)
+    else:
+         abort(403)
 
 @user_views.route('/user/create/', methods=('GET','POST'))
 def create_use():

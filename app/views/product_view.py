@@ -1,5 +1,5 @@
 import math
-from flask import Blueprint, render_template, redirect, url_for,request, flash
+from flask import Blueprint, render_template, redirect, url_for,request, flash, session, abort
 from models.product import Product
 
 from forms.product_forms import CreateProductForm,UpdateProductForm
@@ -12,13 +12,16 @@ product_views =Blueprint ('product',__name__)
 @product_views.route("/product")
 @product_views.route("/productos/<int:page>/")
 def productos(page=1):
-    product = Product.get_all2()
-    limit =10
-    product = Product.get_all2(limit=limit, page=page)
-    total_products= Product.count()
-    pages = math.ceil(total_products / limit)
-    return render_template('/product/product.html',
+    if session.get('user')['rol'] == 1:
+        product = Product.get_all2()
+        limit =10
+        product = Product.get_all2(limit=limit, page=page)
+        total_products= Product.count()
+        pages = math.ceil(total_products / limit)
+        return render_template('/product/product.html',
                            product=product, pages=pages, page=page)
+    else:
+        abort(403)
 
 @product_views.route("/crear_productos", methods=('GET','POST'))
 def c_produ():

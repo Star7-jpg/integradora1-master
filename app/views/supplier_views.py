@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect ,url_for,request,flash
+from flask import Blueprint, render_template, redirect ,url_for,request,flash, session, abort
 from models.supplier import Supplier
 
 from forms.supplier_forms import CreateSupplierForm,UpdateSupplierForm
@@ -6,8 +6,12 @@ supplier_views = Blueprint ('supplier',__name__)
 
 @supplier_views.route("/supplier/")
 def suppliers():
-    supplier=Supplier.get_all()
-    return render_template('supplier/supplier.html', supplier=supplier )
+    if session.get('user')['rol'] == 1:
+            supplier=Supplier.get_all()
+            return render_template('supplier/supplier.html', supplier=supplier )
+    else:
+        abort(403)
+
 
 @supplier_views.route("/supplier/create_sup", methods=('GET','POST'))
 def create_sup():

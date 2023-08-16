@@ -1,4 +1,4 @@
-from flask import Blueprint, session,render_template, redirect, url_for, request, flash
+from flask import Blueprint, session,render_template, redirect, url_for, request, flash, abort, session
 from models.sale import Sale
 from models.product import Product
 from models.user import User
@@ -8,10 +8,13 @@ sale_views = Blueprint ('ventas', __name__)
 
 @sale_views.route('/sale/')
 def sale():
-
-    sale = Sale.get_all()
-    return render_template('sale/sale.html',
+    if session.get('user')['rol'] == 2:
+        sale = Sale.get_all()
+        return render_template('sale/sale.html',
                            sale=sale)
+    else:
+        abort(403)
+
 
 @sale_views.route('/sale/create/', methods=('GET','POST'))
 def create_sal():
