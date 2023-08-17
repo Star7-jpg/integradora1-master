@@ -16,7 +16,7 @@ class CreateUserForm(FlaskForm):
                            validators=[DataRequired()])
     
     contrasenia = StringField('Contraseña', 
-                           validators=[DataRequired()])
+                           validators=[DataRequired(), NumberRange(min=8)])
     rol =  IntegerField('Rol', validators=[DataRequired(),  NumberRange(min=1, max=2)])
     
     submit = SubmitField('Guardar')

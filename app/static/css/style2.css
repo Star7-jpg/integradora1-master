@@ -1,0 +1,160 @@
+/*Estilos Globales*/
+*::after,
+*::before
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    /* Estilos para dispositivos móviles */
+  }
+  
+  @media (min-width: 769px) and (max-width: 1200px) {
+    /* Estilos para tablets y pantallas medianas */
+  }
+  
+  @media (min-width: 1201px) {
+    /* Estilos para pantallas grandes (escritorio) */
+  }
+
+body{
+    background-image: linear-gradient( 135deg, #dcdcdc 10%, #727274 100%);
+    margin: 0 auto;
+    max-width: 1000px;
+    font-family: 'Bahnschrift';
+    text-align: center;
+    color: #333333;
+}
+.spacer {
+    height: 70px; /* Mismo valor de altura que el banner */
+}
+
+.login-link {
+    color: #333; /* Color del enlace */
+    text-decoration: none; /* Quita la decoración de subrayado */
+    font-weight: bold; /* Texto en negrita */
+    position: fixed;
+    top: 10px; /* Alinea en la parte superior */
+    right: 20px; /* Alinea en la parte derecha */
+    transition: color 0.3s ease;
+}
+
+.login-link:hover {
+    color: #555; /* Cambio de color al pasar el cursor */
+}
+
+.banner {
+    position: fixed; /* Fija el banner en la pantalla */
+    top: 0; /* Lo coloca en la parte superior */
+    left: 0; /* Lo coloca a la izquierda */
+    right: 0; /* Lo coloca a la derecha */
+    z-index: 1000; /* Asegura que el banner esté en la parte superior de otros elementos */
+    display: center;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 0.3fr 1.4fr 0.3fr;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #fdfdfdcb;
+    border-radius: 10px;
+    height: 60px;
+    transition: all 0.3s ease; /* Agrega una transición suave */
+}
+
+/*Main*/
+.container-items{
+    width: 100%;
+    /*display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;*/
+    align-items: center;
+}
+
+img{
+    max-width: 100%;
+}
+
+/*Estilos header*/
+header{
+    /*display: flex;
+    justify-content: space-between;*/
+    padding: 30px 0 40px 0;
+}
+
+.count-products{
+    position: absolute;
+}
+
+.item {
+    background-color: rgba(255, 255, 255, 0.664); 
+    margin-top: 10px;
+    width: 300px;
+    border-radius: 20px;
+    border: 1px solid rgb(54, 53, 53);
+}
+
+.item:hover{
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.70);
+}
+
+.info-product{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    text-align: center; 
+}
+
+/*.container-icon{
+    width: 150px;
+    height: 150px;
+    stroke: #000;
+    align-items: center;
+}*/
+
+/* Estilo del icono */
+.calification-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor; /* Esto toma el color del elemento padre, que en este caso será el color del texto */
+    float: right; /* Alinea el icono a la izquierda del texto */
+    margin-right: 5px; /* Crea un pequeño espacio entre el icono y el texto */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el icono para indicar que es clickeable */
+  }
+
+  /* Cambiar la fuente de la letra */
+  .info-product h2 {
+    font-family: "Arial", sans-serif; /* Cambia la fuente del título a Arial o cualquier otra fuente */
+  }
+
+  .item-group {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .red {
+    color: rgb(241, 46, 46);
+  }
+
+.cora {
+    width: 24px;
+    height: 24px;
+    background-image: url('cora.svg'); /* Puedes usar una imagen de corazón aquí */
+    background-size: cover;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.cora.active {
+    background-image: url('cora_red.svg'); /* Cambio al corazón rojo */
+}
+
+.favorite-button {
+    cursor: pointer;
+}
+
+
+

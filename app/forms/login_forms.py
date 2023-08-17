@@ -9,6 +9,6 @@ from models.user import User
         
 ################# Formulario de Login ##################
 class LoginForm(FlaskForm):
-    nom_usuario = StringField('Nom_Usuario', validators=[DataRequired()])
-    contrasenia = PasswordField('Contrasenia', validators=[DataRequired()])
+    nom_usuario = StringField('Nombre de Usuario', validators=[DataRequired()])
+    contrasenia = PasswordField('Contraseña', validators=[DataRequired()])
     submit = SubmitField('Ingresar')

@@ -1,15 +1,228 @@
-{%extends 'base.html'%}
 
 {% block title %}
-hola
+
 {% endblock %}
 
 {% block content %}
-{% include 'insearch.html' %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
+<div class="banner">
+        <h1>Papelería Sandy</h1>
+        <a href="{{ url_for('login.login')}}" class="login-link">Iniciar sesión</a>
+    </div>
 
-<div>
+    <div class="spacer"></div> 
 
-    <p> pagina para el catagalo cuando se haya salido de sesion  </p>
-    <a href="{{url_for('login.login')}}" class="botton">Inicio de sesion </a>
-</div>
-{% endblock %}
+    <div class="container-items">
+        <div id="category-menu">
+          
+        </div>
+        <div class="item-group">
+            <div class="item">
+                <figure>
+                    <img src="{{ url_for('static', filename='images/Libreta.png') }}" alt="Product">
+                </figure>
+                <div class="info-product">
+                    <h2>Libreta Scribe</h2>
+                    <p class="price">Precio $23</p>
+                    <p class="description">Libreta Scribe cuadro grande, 100 hojas</p>
+                    <p class="calification-icon">
+                        <i class="fa fa-heart cora"> </i>
+                    </p>
+                </div>
+            </div>
+                <div class="item">
+                    <figure>
+                        <img src="{{ url_for('static', filename='images/Plastilina.png') }}" alt="Product">
+                    </figure>
+                    <div class="info-product">
+                        <h2>Plastilina</h2>
+                        <p class="price">Precio: $11</p>
+                        <p class="description">Barra de plastilina color rojo</p>
+                        <p class="calification-icon">
+                           <i class="fa fa-heart cora red"></i>
+                        </p>
+                    </div>
+                </div>
+                <div class="item">
+                    <figure>
+                        <img src="{{ url_for('static', filename='images/Pritt.png') }}" alt="Product">
+                    </figure>
+                    <div class="info-product">
+                        <h2>Resistol </h2>
+                        <p class="price">Precio: $16</p>
+                        <p class="description">Resistol en barra chico</p>
+                        <p class="calification-icon">
+                           <i class="fa fa-heart cora"></i>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="item-group">
+                <div class="item">
+                    <figure>
+                        <img src="{{ url_for('static', filename='images/ColoresVividel.png') }}" alt="Product">
+                    </figure>
+                    <div class="info-product">
+                        <h2>Lápices de colores</h2>
+                        <p class="price">Precio: $60</p>
+                        <p class="description">Colores 24 piezas + 3 incluye color oro, plata y cobre</p>
+                        <p class="calification-icon">
+                            <i class="fa fa-heart cora red"></i>
+                        </p>
+                    </div>
+                </div>
+                <div class="item">
+                    <figure>
+                        <img src="{{ url_for('static', filename='images/lapicerosBic.png') }}" alt="Product">
+                    </figure>
+                    <div class="info-product">
+                        <h2>Lapicero Bic</h2>
+                        <p class="price">Precio: $6</p>
+                        <p class="description">Lápicero Bic de color rojo, azul y negro, se venden por separado</p>
+                        <p class="calification-icon">
+                           <i class="fa fa-heart cora"></i>
+                        </p>
+                    </div>
+                </div>
+                <div class="item">
+                    <figure>
+                        <img src="{{ url_for('static', filename='images/lapizDuo.png') }}" alt="Product">
+                    </figure>
+                    <div class="info-product">
+                        <h2>Lapiz Duo</h2>
+                        <p class="price">Precio: $6</p>
+                        <p class="description">Lápiz Duo Dixon</p>
+                        <p class="calification-icon">
+                           <i class="fa fa-heart cora"></i>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="item-group">
+                <div class="item">
+                    <figure>
+                        <img src="{{ url_for('static', filename='images/LibretaNorma.png') }}" alt="Product">
+                    </figure>
+                    <div class="info-product">
+                        <h2>Libreta Norma</h2>
+                        <p class="price">Precio: $86</p>
+                        <p class="description">Libreta Norma rayada, 100 hojas</p>
+                        <p class="calification-icon">
+                           <i class="fa fa-heart cora"></i>
+                        </p>
+                    </div>
+                </div>
+                <div class="item">
+                    <figure>
+                        <img src="{{ url_for('static', filename='images/LibretaEco.png') }}" alt="Product">
+                    </figure>
+                    <div class="info-product">
+                        <h2>Libreta Ecológica</h2>
+                        <p class="price">Precio: $60</p>
+                        <p class="description">Libreta Ecológica blanca, 100 hojas</p>
+                        <p class="calification-icon">
+                           <i class="fa fa-heart cora"></i>
+                        </p>
+                    </div>
+                </div>
+                <div class="item">
+                    <figure>
+                        <img src="{{ url_for('static', filename='images/resistolChico-removebg-preview.png') }}" alt="Product">
+                    </figure>
+                    <div class="info-product">
+                        <h2>Resistol Dixon chico</h2>
+                        <p class="price">Precio: $10</p>
+                        <p class="description">Resistol en barra chico, 8g</p>
+                        <p class="calification-icon">
+                           <i class="fa fa-heart cora"></i>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="item-group">
+                <div class="item">
+                    <figure>
+                        <img src="{{ url_for('static', filename='images/resistolGrande-removebg-preview.png') }}" alt="Product">
+                    </figure>
+                    <div class="info-product">
+                        <h2>Resistol Dixon grande</h2>
+                        <p class="price">Precio: $25</p>
+                        <p class="description">Resistol en barra grande</p>
+                        <p class="calification-icon">
+                           <i class="fa fa-heart cora"></i>
+                        </p>
+                    </div>
+                </div>
+                <div class="item">
+                    <figure>
+                        <img src="{{ url_for('static', filename='images/resistolBully.png') }}" alt="Product">
+                    </figure>
+                    <div class="info-product">
+                        <h2>Resistol Bully</h2>
+                        <p class="price">Precio: $11</p>
+                        <p class="description">Resistol líquido 110g</p>
+                        <p class="calification-icon">
+                           <i class="fa fa-heart cora"></i>
+                        </p>
+                    </div>
+                </div>
+                <div class="item">
+                    <figure>
+                        <img src="{{ url_for('static', filename='images/ColoresMapita.png') }}" alt="Product">
+                    </figure>
+                    <div class="info-product">
+                        <h2>Lápices de colores</h2>
+                        <p class="price">Precio: $27</p>
+                        <p class="description">Lápices de colores Mapita 12 piezas</p>
+                        <p class="calification-icon">
+                           <i class="fa fa-heart cora"></i>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="item-group">
+                <div class="item">
+                    <figure>
+                        <img src="{{ url_for('static', filename='images/plumonesPelikan.png') }}" alt="Product">
+                    </figure>
+                    <div class="info-product">
+                        <h2>Plumón Pelikan</h2>
+                        <p class="price">Precio: $34</p>
+                        <p class="description">Paquete de plumones de 12 piezas</p>
+                        <p class="calification-icon">
+                        <i class="fa fa-heart cora"></i>
+                        </p>
+                    </div>
+                </div>
+                <div class="item">
+                    <figure>
+                        <img src="{{ url_for('static', filename='images/pinturaVinci.png') }}" alt="Product">
+                    </figure>
+                    <div class="info-product">
+                        <h2>Pintura Vinci</h2>
+                        <p class="price">Precio: $12</p>
+                        <p class="description">Pintura Vinci color negro</p>
+                        <p class="calification-icon">
+                        <i class="fa fa-heart cora"></i>
+                        </p>
+                    </div>
+                </div>
+                <div class="item">
+                    <figure>
+                        <img src="{{ url_for('static', filename='images/papelCrepre.jpg') }}" alt="Product">
+                    </figure>
+                    <div class="info-product">
+                        <h2>Papel crepé</h2>
+                        <p class="price">Precio: $10</p>
+                        <p class="description">Un pliego de papel crepé,color verde, rosa, amarillo, azul cielo, rojo, morado, entre otros</p>
+                        <p class="calification-icon">
+                        <i class="fa fa-heart cora"></i>
+                        </p>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/menu_cat.js') }}"></script> 
+    {% endblock %}
+</body>
+</html>
