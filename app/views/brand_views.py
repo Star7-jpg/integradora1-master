@@ -6,13 +6,17 @@ from forms.brand_forms import CreateBrandForm, UpdateBrandForm
 brand_views = Blueprint ('brand',__name__)
 
 @brand_views.route("/Marca/")
+
 @brand_views.route("/Marca/<int:page>")
 def brands(page=1):
-    limit =10
-    brand=Brand.get_all(limit = limit,page=page)
-    total_br=Brand.count()
-    pages= math.ceil(total_br / limit)
-    return render_template('brand/brand.html',brand=brand, page=page, pages=pages)
+    if session.get('user')['rol'] == 1:
+        limit =10
+        brand=Brand.get_all(limit = limit,page=page)
+        total_br=Brand.count()
+        pages= math.ceil(total_br / limit)
+        return render_template('brand/brand.html',brand=brand, page=page, pages=pages)
+    else:
+        abort(403)
 
 @brand_views.route("/Marca/crear", methods=('GET','POST'))
 def create_bra():

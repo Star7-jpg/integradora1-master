@@ -18,7 +18,7 @@
             <div class="div">
                 {{ form.nom_usuario.label }}
                 <br>
-                {{ form.nom_usuario(class="input") }}
+                {{ form.nom_usuario(class="input a") }}
                 {% if form.nom_usuario.errors %}
                     {% for error in form.nom_usuario.errors %}
                     <p class="text-danger">{{ error }}</p>
