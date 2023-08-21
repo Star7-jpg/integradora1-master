@@ -8,7 +8,6 @@ category_view =Blueprint('cat',__name__)
 @category_view.route("/categorias/")
 @category_view.route("/categorias/<int:page>/")
 def catp(page=1):
-<<<<<<< HEAD
     if session.get('user') and session.get('user')['role']==1:
         limit=10
 
@@ -18,15 +17,6 @@ def catp(page=1):
         
         return render_template("/categories/categories.html",
                                 categories=category, page=page, pages=pages)
-=======
-    if session.get('user')['rol'] == 1:
-        limit=10
-        category=Category.get_all(limit=limit, page=page)
-        total_cat = Category.count()
-        pages = math.ceil(total_cat / limit)
-        return render_template("/categories/categories.html",
-                            categories=category, page=page, pages=pages)
->>>>>>> c48ae21c87754321f63b1dad2a4976c86d1d5810
     else:
         abort(403)
 

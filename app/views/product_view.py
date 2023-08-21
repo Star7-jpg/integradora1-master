@@ -12,25 +12,16 @@ product_views =Blueprint ('product',__name__)
 @product_views.route("/product/")
 @product_views.route("/product/<int:page>/")
 def productos(page=1):
-<<<<<<< HEAD
     if session.get('user') and session.get('user')['role']==1:
     
-=======
-    if session.get('user')['rol'] == 1:
->>>>>>> c48ae21c87754321f63b1dad2a4976c86d1d5810
         product = Product.get_all2()
         limit =10
         product = Product.get_all2(limit=limit, page=page)
         total_products= Product.count()
         pages = math.ceil(total_products / limit)
         return render_template('/product/product.html',
-<<<<<<< HEAD
                             product=product, pages=pages, page=page)
     else: 
-=======
-                           product=product, pages=pages, page=page)
-    else:
->>>>>>> c48ae21c87754321f63b1dad2a4976c86d1d5810
         abort(403)
 
 @product_views.route("/product/crear_productos", methods=('GET','POST'))

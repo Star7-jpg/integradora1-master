@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 from flask import Blueprint, session,render_template, redirect, url_for, request, flash, session, abort
-=======
-from flask import Blueprint, session,render_template, redirect, url_for, request, flash, abort, session
->>>>>>> c48ae21c87754321f63b1dad2a4976c86d1d5810
 from models.sale import Sale
 from models.product import Product
 from models.user import User
@@ -12,7 +8,6 @@ sale_views = Blueprint ('ventas', __name__)
 
 @sale_views.route('/sale/')
 def sale():
-<<<<<<< HEAD
    if session.get('user') and session.get('user')['role']==2:
         sale = Sale.get_all()
         return render_template('sale/sale.html',
@@ -20,16 +15,6 @@ def sale():
    else:
       abort(403)
       
-=======
-    if session.get('user')['rol'] == 2:
-        sale = Sale.get_all()
-        return render_template('sale/sale.html',
-                           sale=sale)
-    else:
-        abort(403)
-
-
->>>>>>> c48ae21c87754321f63b1dad2a4976c86d1d5810
 @sale_views.route('/sale/create/', methods=('GET','POST'))
 def create_sal():
    if session.get('user') and session.get('user')['role']==2:

@@ -9,7 +9,7 @@ brand_views = Blueprint ('brand',__name__)
 
 @brand_views.route("/Marca/<int:page>")
 def brands(page=1):
-    if session.get('user')['rol'] == 1:
+    if session.get('user') and session.get('user')['role']==1:
         limit =10
         brand=Brand.get_all(limit = limit,page=page)
         total_br=Brand.count()

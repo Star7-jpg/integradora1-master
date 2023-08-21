@@ -6,19 +6,11 @@ user_views = Blueprint ('usuario', __name__)
 
 @user_views.route('/user/')
 def user():
-<<<<<<< HEAD
     if session.get('user') and session.get('user')['role']==1:
         user = User.get_all()
         return render_template('user/user.html',
                             user=user)
     else: 
-=======
-    if session.get('user')['rol'] == 1:
-        user = User.get_all()
-        return render_template('user/user.html',
-                           user=user)
-    else:
->>>>>>> c48ae21c87754321f63b1dad2a4976c86d1d5810
          abort(403)
 
 @user_views.route('/user/create/', methods=('GET','POST'))
